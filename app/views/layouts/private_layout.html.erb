@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<%= render partial: "layouts/header" %>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <%= render partial: "layouts/private_menu" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

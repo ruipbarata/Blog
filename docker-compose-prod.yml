@@ -1,0 +1,32 @@
+version: '3'
+services:
+  db:
+    container_name: blog-db
+    image: postgres:12.3
+    restart: always
+    volumes:
+      - $HOME/.docker/data/blog/postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: qqq
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+    ports:
+      - 5432:5432
+
+  web:
+    container_name: blog-web
+    image: registry.gitlab.com/ruipbarata/blog:1.0-release
+    environment:
+      DB_USER: qqq
+      DB_USER_PASSWORD: "${POSTGRES_PASSWORD}"
+      DB_HOST: db
+      DB_PORT: 5432
+      RAILS_SERVE_STATIC_FILES: "true"
+      GMAIL_USER_NAME: ${GMAIL_USER_NAME}
+      GMAIL_USER_PASSWORD: ${GMAIL_USER_PASSWORD}
+    volumes:
+      - ./public/uploads:/project/public/uploads
+      - ./storage:/project/storage
+    ports:
+      - 3000:3000
+    depends_on:
+      - db

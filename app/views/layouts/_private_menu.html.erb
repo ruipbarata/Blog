@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand"> <%= link_to('Blog', root_path, class: "navbar-brand") %></a>
+
+  <button class="navbar-toggler mb-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <% if current_user %>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="nav nav-list">
+        <li class="nav-item active">
+          <%= link_to('New Article', new_users_article_path, class: "nav-link") %>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarUsersDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= @application_presenter.current_user_title(current_user) %>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarUsersDropdownMenuLink">
+            <%= link_to('Private area', users_root_path_url, class: "dropdown-item") %></a>
+            <%= link_to('Account Settings', edit_user_registration_path, method: :get, class: "dropdown-item") %></a>
+            <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "dropdown-item") %></a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  <% else %>
+    <%= link_to "Sign In/ Sign Up", new_user_session_path %>
+  <% end %>
+</nav>

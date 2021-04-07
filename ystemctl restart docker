@@ -1,0 +1,22 @@
+[0;1;32m●[0m docker.service - Docker Application Container Engine
+     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+     Active: [0;1;32mactive (running)[0m since Thu 2020-08-06 12:00:35 WEST; 15min ago
+TriggeredBy: [0;1;32m●[0m docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 27252 (dockerd)
+      Tasks: 27
+     Memory: 775.8M
+     CGroup: /system.slice/docker.service
+             ├─27252 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+             └─30874 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 5432 -container-ip 172.18.0.2 -container-port 5432
+
+ago 06 12:11:58 rpbUbunto dockerd[27252]: time="2020-08-06T12:11:58.627330998+01:00" level=error msg="attach failed with error: error attaching stdout stream: write unix /run/docker.sock->@: write: broken pipe"
+ago 06 12:12:54 rpbUbunto dockerd[27252]: time="2020-08-06T12:12:54.047454368+01:00" level=error msg="stream copy error: reading from a closed fifo"
+ago 06 12:12:54 rpbUbunto dockerd[27252]: time="2020-08-06T12:12:54.047457582+01:00" level=error msg="stream copy error: reading from a closed fifo"
+ago 06 12:12:55 rpbUbunto dockerd[27252]: time="2020-08-06T12:12:55.847570978+01:00" level=error msg="cb3b73ae5aa46a216993bedaa9d7baae551e0a67316937a9332fdf3ceef43e4f cleanup: failed to delete container from containerd: no such container"
+ago 06 12:13:24 rpbUbunto dockerd[27252]: time="2020-08-06T12:13:24.379731625+01:00" level=error msg="stream copy error: reading from a closed fifo"
+ago 06 12:13:24 rpbUbunto dockerd[27252]: time="2020-08-06T12:13:24.379731538+01:00" level=error msg="stream copy error: reading from a closed fifo"
+ago 06 12:13:26 rpbUbunto dockerd[27252]: time="2020-08-06T12:13:26.595287204+01:00" level=error msg="cb3b73ae5aa46a216993bedaa9d7baae551e0a67316937a9332fdf3ceef43e4f cleanup: failed to delete container from containerd: no such container"
+ago 06 12:14:21 rpbUbunto dockerd[27252]: time="2020-08-06T12:14:21.740289960+01:00" level=error msg="stream copy error: reading from a closed fifo"
+ago 06 12:14:21 rpbUbunto dockerd[27252]: time="2020-08-06T12:14:21.740312420+01:00" level=error msg="stream copy error: reading from a closed fifo"
+ago 06 12:14:23 rpbUbunto dockerd[27252]: time="2020-08-06T12:14:23.784092955+01:00" level=error msg="cb3b73ae5aa46a216993bedaa9d7baae551e0a67316937a9332fdf3ceef43e4f cleanup: failed to delete container from containerd: no such container"

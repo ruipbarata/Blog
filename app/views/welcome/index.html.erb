@@ -1,0 +1,16 @@
+<table class="table table-hover" data-controller="welcomeIndex">
+  <tbody>
+    <% @articles.each do |article| %>
+      <% if article.is_published %>
+        <tr data-href="<%= published_article_path(article) %>" data-action="click->welcomeIndex#openHref" style="cursor: pointer;" class="pointer">
+          <td>
+            <b>
+              <p class="text-center"><%= article.title %></p>
+            </b>
+            <p class="text-center"><%= image_tag article.banner.variant(resize_to_limit: [900, 450]) %></p>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
